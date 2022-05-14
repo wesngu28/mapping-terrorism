@@ -8,7 +8,7 @@ For our final project, we are interested in creating a map to inform people of t
 
 ## Project Significance and Broader Impacts
 
-TODO
+The goal is to provide a better understanding of terrorism acts and the consequences of them, which aims to help the prevention of future terrorism acts.  Since the project is accessible to the whole public, there could be other unintended impacts that come along with it.  One instance would be enforcing stereotypes of certain areas due to its political instability, even though events could be largely local and have no relation to the demographics the user interacts with.  Another would be people with ill intentions trying to replicate the attacks mentioned, although we perceive this risk as very low because there are other materials that are much more influential that incites the user to do such actions.
 
 ## Primary Functions and Major Data Sources
 
@@ -23,3 +23,11 @@ Our target audience is any person who is interested in knowing more about terror
 ## Multimedia
 
 For the required multimedia we will be incorporating available images and news articles,  potentially even videos if we can find data on them, of each event that you can see upon clicking the points to get more information. Of course, we will also include text of the different statistics of each event that we wish to include.
+
+## Project Format
+
+For the format of our project, we are going to do option one and create an interactive web map dashboard. We are planning on using a Mercator projection since we are working with global data, and we want to start the map projection focused on the United States, with a center coordinate of -96, 40 and a zoom level of 4.
+
+For our basemap, we want something that does not have too much visual clutter and is a high contrast color to better see the terrorism incident points, so we are looking at using a dark, basic basemap such as Mapbox’s dark-v10. We wish to add at least one main thematic layer, being a mapping of all the terrorism events on the map using the GTD data, with each icon either colored or sized by a numeric data value or categorical (deaths/injuries, type of weapon used, ect), with a UI element that gives the user the option to change said value being graphed. Because the symbols need to be dynamically rendered based on user input, this layer will have to be a vector. There are over 200,000 different points we will have to map on said vector layer, which may be too much for Mapbox JS, so we will look into dynamically rendering points based on the current map zoom, as well as potentially grouping and simplifying the way the points are rendered, such as rendering the points as a heatmap or clusters instead of individually at larger zooms. We could also remove any data points in which no deaths, injuries, or large amounts of property damage occurred. We may also incorporate toggleable thematic layers that can demonstrate certain aspects of the data we wish to particularly highlight such as a choropleth layer of the deaths per country due to terrorism attacks. These can be rendered as a raster, with each bounding box being the size of each continent. Finally, we also want to give users the ability to filter certain aspects of the data to change how it shows on the map, and for that we will look into using Mapbox JS’s Other Filter to create a filtering dashboard alongside the map.
+
+The map itself will be hosted/embedded in a website, and contain 2 pages: the map page, as well as an about page that describes the data and our motivations for exploring it.
