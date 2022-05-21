@@ -3,19 +3,32 @@ mapboxgl.accessToken =
 let map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/dark-v10',
-    zoom: 1, // starting zoom
+    zoom: 2.5, // starting zoom
     center: [-96, 40] // starting center
 });
 
 map.on('load', () => {
     map.addSource('terrorism-events', {
         type: 'geojson',
-        data: 'assets/gtd_geojson_arcgis.geojson'
+        data: '/assets/gtd_geojson_arcgis.geojson'
     });
+
+    map.loadImage(
+        '/assets/marker.png',
+        (error, image) => {
+            if (error) throw error;
+            // Add the image to the map style.
+            map.addImage('marker', image);
+        }
+    )
 
     map.addLayer({
         'id': 'terrorism-events-layer',
         'type': 'symbol',
-        'source': 'terrorism-events'
+        'source': 'terrorism-events',
+        'layout': {
+            'icon-image': 'marker', // reference the image
+            'icon-size': 0.025
+        }
     });
 });
