@@ -5,6 +5,8 @@ let map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/dark-v10',
     zoom: 2.5, // starting zoom
     center: [-96, 40] // starting center
+  minZoom: 1.5, // set minimum zoom level and avoid showing the entire map
+  maxZoom: 12, // set maximum zoom level
 });
 
 map.on('load', () => {
