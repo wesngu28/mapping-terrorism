@@ -10,11 +10,11 @@ let map = new mapboxgl.Map({
 map.on('load', () => {
     map.addSource('terrorism-events', {
         type: 'geojson',
-        data: 'assets/gtd_geojson_arcgis.geojson'
+        data: './assets/gtd_geojson_arcgis.geojson'
     });
 
     map.loadImage(
-        'assets/marker.png',
+        './assets/marker.png',
         (error, image) => {
             if (error) throw error;
             // Add the image to the map style.
