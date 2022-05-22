@@ -104,7 +104,6 @@ map.on("load", () => {
     const eventProperties = e.features[0].properties;
     const readableDate = new Date(`${eventProperties.iyear}-${eventProperties.imonth}-${eventProperties.iday}`).toDateString();
     const brief = `A ${eventProperties.attacktype1_txt.toLowerCase()} in ${eventProperties.city}, ${eventProperties.country_txt} by ${eventProperties.gname}`
-    console.log(getStatistics(eventProperties));
     const eventHTML = `<div class="event_details"><p>${brief}</p><p>Date: ${readableDate}</p><p>Target: ${eventProperties.target1}</p><p>Statistics: ${getStatistics(eventProperties)}</p></div>`;
     new mapboxgl.Popup()
         .setLngLat(e.features[0].geometry.coordinates)
