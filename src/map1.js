@@ -14,7 +14,7 @@ map.on('load', () => {
     });
 
     map.loadImage(
-        '/assets/marker.png',
+        'assets/marker.png',
         (error, image) => {
             if (error) throw error;
             // Add the image to the map style.
