@@ -52,10 +52,6 @@ main > section {
     margin-top: 7vh;
 }
 
-iframe {
-    height: 93vh;
-}
-
 #map {
     position: absolute;
     bottom: 0;
@@ -70,4 +66,36 @@ iframe {
     height: 50px;
     border-radius: 50%;
     cursor: pointer;
-  }
+}
+
+#sorter {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    font-family: Arial, sans-serif;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    width: 20vh;
+    height: 40vh;
+    border-radius: 8px;
+}
+
+#year {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mapboxgl-popup-content {
+    max-width: 35vh;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+#event-details {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+    border: none;
+    color: black;
+}

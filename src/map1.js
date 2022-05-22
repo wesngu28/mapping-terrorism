@@ -99,4 +99,36 @@ map.on("load", () => {
     },
     minzoom: 5, // Original icon gets displayed when the zoom level is greater than 4
   });
+
+  map.on('click', 'terrorism-events-layer', (e) => {
+    const eventProperties = e.features[0].properties;
+    const readableDate = new Date(`${eventProperties.iyear}-${eventProperties.imonth}-${eventProperties.iday}`).toDateString();
+    const brief = `A ${eventProperties.attacktype1_txt.toLowerCase()} in ${eventProperties.city}, ${eventProperties.country_txt} by ${eventProperties.gname}`
+    console.log(getStatistics(eventProperties));
+    const eventHTML = `<div class="event_details"><p>${brief}</p><p>Date: ${readableDate}</p><p>Target: ${eventProperties.target1}</p><p>Statistics: ${getStatistics(eventProperties)}</p></div>`;
+    new mapboxgl.Popup()
+        .setLngLat(e.features[0].geometry.coordinates)
+        .setHTML(eventHTML)
+        .addTo(map);
+  });
+
+  function getStatistics(e) {
+    const statistics = [];
+    if(e.nkill > 0) {
+      statistics.push(`${e.nkill} killed`);
+    }
+    if(e.nwound > 0) {
+      statistics.push(`${e.nwound} injured`);
+    }
+    if(e.propextent_txt) {
+      statistics.push(`${e.propextent_txt} property damage`);
+    }
+    if(e.nhostkid > 0) {
+      statistics.push(`${e.nhostkid} hostages taken`);
+    }
+    if(e.ransom > 0) {
+      statistics.push(`${e.ransom} ransom paid`);
+    }
+    return statistics.join(', ');
+  }
 });
