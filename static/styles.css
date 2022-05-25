@@ -7,6 +7,10 @@ body {
     overflow: hidden
 }
 
+.hidden {
+    display: none;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
