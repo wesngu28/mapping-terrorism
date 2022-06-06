@@ -103,3 +103,10 @@ main > section {
     border: none;
     color: black;
 }
+
+#overview {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 15vh;
+}
