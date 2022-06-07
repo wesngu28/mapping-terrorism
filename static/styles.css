@@ -34,7 +34,7 @@ nav button {
 }
 
 nav button:hover{
-    border-bottom: 2px solid white;
+    border-bottom: 0.1em solid white;
 }
 
 #page-title {
@@ -44,7 +44,7 @@ nav button:hover{
 }
 
 .selected {
-    border-bottom: 2px solid white;
+    border-bottom: 0.1em solid white;
 }
 
 #buttons-home {
@@ -108,5 +108,46 @@ main > section {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 15vh;
+    margin-top: 10vh;
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+}
+
+#content img {
+    width: 65vh;
+    padding: 2em;
+}
+
+#intro {
+    margin-left: 5vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#about {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#about div {
+    display: flex;
+    justify-content: center;
+}
+
+#about div div {
+    margin-left: 0.5em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#person img {
+    width: 10vh;
+    height: 10vh;
+    margin-right: 0.5em;
 }
