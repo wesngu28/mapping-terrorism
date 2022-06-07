@@ -135,6 +135,7 @@ map.on("load", () => {
 function filter() {
   let yearFilter = document.getElementById("years").value;
   let deathFilter = document.getElementById("deaths").value;
+  let injuryFilter = document.getElementById("injuries").value;
   let propertyFilter = document.getElementById("prop-dmg").value;
   let filterBuilder = ['all'];
 
@@ -146,13 +147,20 @@ function filter() {
   }
   if(deathFilter) { // if death filter is selected
     let selectedDeaths = deathFilter.split('-');
-    filterBuilder.push(['>=', 'nkill', parseInt(selectedDeaths[0])])
+    filterBuilder.push(['>=', 'nkill', parseInt(selectedDeaths[0])]);
     if(selectedDeaths.length == 2) {
-      filterBuilder.push(['<', 'nkill', parseInt(selectedDeaths[1])])
+      filterBuilder.push(['<', 'nkill', parseInt(selectedDeaths[1])]);
+    }
+  }
+  if(injuryFilter) {
+    let selectedInjuries = injuryFilter.split('-');
+    filterBuilder.push(['>=', 'nwound', parseInt(selectedInjuries[0])]);
+    if(selectedInjuries.length == 2) {
+      filterBuilder.push(['<', 'nwound', parseInt(selectedInjuries[1])]);
     }
   }
   if(propertyFilter) { // if prop damage filter is selected
-    filterBuilder.push(['==', 'property', parseInt(propertyFilter)])
+    filterBuilder.push(['==', 'property', parseInt(propertyFilter)]);
   }
 
   if(filterBuilder.length > 1) { // if anything is being filtered
