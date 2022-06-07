@@ -146,7 +146,7 @@ main > section {
     flex-direction: column;
 }
 
-#person img {
+#about img {
     width: 10vh;
     height: 10vh;
     margin-right: 0.5em;
