@@ -12,10 +12,10 @@
     <body>
         <div id="map"></div>
         <div class='map-overlay' id='legend'>
-            <h2>Sort By:</h2>
+            <h2>Filter:</h2>
             <div id="year">
               <p>Year:</p>
-              <select name="Years" id="years">
+              <select name="Years" id="years" onchange="filterYear()">
                 <option></option>
                 <option value="2010-2019">2010-2019</option>
                 <option value="2000-2009">2000-2009</option>

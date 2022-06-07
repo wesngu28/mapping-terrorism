@@ -93,7 +93,7 @@ map.on("load", () => {
     source: "terrorism-events",
     layout: {
       "icon-image": "marker", // reference the image
-      "icon-size": 0.025,
+      "icon-size": 0.045,
       "icon-allow-overlap": true, // added for allowing overlapping icons which improves loading speed when zooming
       // can be omitted later
     },
@@ -131,3 +131,33 @@ map.on("load", () => {
     return statistics.join(', ');
   }
 });
+
+function filter() {
+  let yearFilter = document.getElementById("years").value;
+  let deathFilter = document.getElementById("deaths").value;
+  let propertyFilter = document.getElementById("prop-dmg").value;
+  let filterBuilder = ['all'];
+
+  // using conditionals to build a master filter to make sure all filters are applied to feature layer
+  if(yearFilter) { // if year filter is selected
+    let selectedYears = yearFilter.split('-');
+    filterBuilder.push(['>=', 'iyear', parseInt(selectedYears[0])]);
+    filterBuilder.push(['<', 'iyear', parseInt(selectedYears[1])]);
+  }
+  if(deathFilter) { // if death filter is selected
+    let selectedDeaths = deathFilter.split('-');
+    filterBuilder.push(['>=', 'nkill', parseInt(selectedDeaths[0])])
+    if(selectedDeaths.length == 2) {
+      filterBuilder.push(['<', 'nkill', parseInt(selectedDeaths[1])])
+    }
+  }
+  if(propertyFilter) { // if prop damage filter is selected
+    filterBuilder.push(['==', 'property', parseInt(propertyFilter)])
+  }
+
+  if(filterBuilder.length > 1) { // if anything is being filtered
+    map.setFilter('terrorism-events-layer', filterBuilder);
+  } else { // if nothing is being filtered
+    map.setFilter('terrorism-events-layer', null);
+  }
+}

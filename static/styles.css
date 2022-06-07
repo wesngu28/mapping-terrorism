@@ -84,7 +84,7 @@ main > section {
     border-radius: 8px;
 }
 
-#year {
+#year, #death, #propty-dmg {
     display: flex;
     justify-content: space-between;
 }
