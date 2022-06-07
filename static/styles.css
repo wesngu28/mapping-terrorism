@@ -1,153 +1,193 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    overflow: hidden
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .hidden {
-    visibility: hidden;
+  display: none !important;
+}
+
+.map-hidden {
+  visibility: hidden;
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 7vh;
-    background-color: #BC5D5F;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  position: fixed;
+  width: 100vw;
+  height: 7vh;
+  background-color: #BC5D5F;
 }
-
+nav div p {
+  color: white;
+  font-size: 1.5vw;
+  margin-left: 2vw;
+}
+@media only screen and (orientation: portrait) {
+  nav div p {
+    font-size: 3.5vw;
+  }
+}
 nav button {
-    border: 0;
-    font-size: 1.5em;
-    width: 100%;
-    cursor: pointer;
-    background-color: #BC5D5F;;
-    color: white;
-    margin-left: 5vw;
-    margin-right: 5vw;
+  border: 0;
+  font-size: 1.5vw;
+  width: 100%;
+  cursor: pointer;
+  background-color: #BC5D5F;
+  color: white;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
-
-nav button:hover{
-    border-bottom: 0.1em solid white;
+nav button:hover {
+  border-bottom: 0.1em solid white;
 }
-
-#page-title {
-    margin-left: 5vw;
-    color: white;
-    font-size: 1.5em;
+@media only screen and (orientation: portrait) {
+  nav button {
+    font-size: 3.5vw;
+  }
 }
 
 .selected {
-    border-bottom: 0.1em solid white;
+  border-bottom: 0.1em solid white;
 }
 
 #buttons-home {
-    display: flex;
-    justify-content: space-between;
-}
-
-main > section {
-    margin-top: 7vh;
-}
-
-#map {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 93%;
-}
-
-.marker {
-    background-image: url('mapbox-icon.png');
-    background-size: cover;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-#sorter {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.8);
-    font-family: Arial, sans-serif;
-    bottom: 0;
-    right: 0;
-    padding: 10px;
-    width: 20vh;
-    height: 40vh;
-    border-radius: 8px;
-}
-
-#year, #death, #propty-dmg, #injury {
-    display: flex;
-    justify-content: space-between;
-}
-
-.mapboxgl-popup-content {
-    max-width: 35vh;
-    padding: 8px;
-    border-radius: 8px;
-}
-
-#event-details {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 4px;
-    border: none;
-    color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
 }
 
 #overview {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  height: 100vh;
+}
+@media only screen and (max-width: 800px) {
+  #overview {
+    flex-wrap: wrap;
+    width: 100vw;
+  }
+}
+@media only screen and (max-width: 800px) {
+  #overview {
+    padding-top: 7vh;
+  }
 }
 
 #content {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 60%;
+  margin-left: 3vh;
 }
-
 #content img {
-    width: 65vh;
-    padding: 2em;
+  margin-top: 5vh;
+  max-width: 70%;
+  min-width: 30vh;
+}
+@media only screen and (max-width: 800px) {
+  #content {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50%;
+  }
+  #content img {
+    margin-top: 0;
+  }
 }
 
 #intro {
-    margin-left: 5vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 5vw;
+  width: 50vw;
+}
+@media only screen and (orientation: portrait) {
+  #intro {
+    margin-left: 2vw;
+  }
+}
+@media only screen and (orientation: portrait) {
+  #intro {
+    width: 100vh;
+  }
+}
+
+#info {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 #about {
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
-
 #about div {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
-
 #about div div {
-    margin-left: 0.5em;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  margin-left: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#about img {
+  width: 10vh;
+  height: 10vh;
+  margin-right: 0.5em;
 }
 
-#about img {
-    width: 10vh;
-    height: 10vh;
-    margin-right: 0.5em;
+#map {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 93vh;
 }
+
+#sorter {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  width: 20vh;
+  height: 40vh;
+  border-radius: 8px;
+}
+#sorter div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.mapboxgl-popup-content {
+  max-width: 35vh;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+/*# sourceMappingURL=styles.css.map */
