@@ -18,6 +18,6 @@ The data source used comes from the [Global Terrorism Database](https://www.star
 
 ### Attributions
 
-We used ArcGIS Pro to convert the csv from the data source into geojson. In order to clean the data, we used a Jupyter Notebook and basic operations within Excel. We used the mapping library Mapbox JS fo r the map.
+We used ArcGIS Pro to convert the csv from the data source into geojson. In order to clean the data, we used a Jupyter Notebook and basic operations within Excel. We used the mapping library Mapbox JS for the map. The icons used on the map to represent the various weapon types were taking from Twemoji's open source emojis.
 
 Thank you to Professor Zhao and the TAs Jiaxin Feng and Steven Bao, as well as the University of Washington.
