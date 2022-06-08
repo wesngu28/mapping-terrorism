@@ -132,6 +132,20 @@ map.on("load", () => {
   }
 });
 
+// handle changing window from legend to filters depending on zoom level
+map.on('zoomend', () => {
+  let currZoom = map.getZoom();
+  let legendDiv = document.getElementById("legend")
+  let filterDiv = document.getElementById("sorter")
+  if(currZoom > 5) {
+    legendDiv.style.display = "none";
+    filterDiv.style.display = "inline";
+  } else {
+    legendDiv.style.display = "inline";
+    filterDiv.style.display = "none";
+  }
+});
+
 function filter() {
   let yearFilter = document.getElementById("years").value;
   let deathFilter = document.getElementById("deaths").value;
