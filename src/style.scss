@@ -1,15 +1,34 @@
+:root {
+  p {
+    margin: 0;
+  }
+}
+
 @mixin container($justify: center, $alignment: center, $direction: row) {
   display: flex;
   justify-content: $justify;
   align-items: $alignment;
   flex-direction: $direction
 }
+
+// variables
 $color: #BC5D5F;
+$main-padding-x: 2rem;
+$main-padding-y: 1.25rem;
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Work Sans', Arial, sans-serif;
   margin: 0;
   padding: 0;
+
+  // to hide scrollbar
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll; 
+
+  &::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
 }
 
 .hidden {
@@ -22,97 +41,73 @@ body {
 
 nav {
   @include container(space-between);
-  position: fixed;
-  width: 100vw;
-  height: 7vh;
+  position: sticky;
+  top: 0;
+  width: 100%;
   background-color: $color;
-  div p {
-    color: white;
-    font-size: 1.5vw;
-    margin-left: 2vw;
-    @media only screen and (orientation: portrait) {
-      font-size: 3.5vw;
+  z-index: 10;
+  .title-wrapper {
+    padding: $main-padding-y $main-padding-x;
+    .title {
+      font-weight: 500;
+      color: white;
+      font-size: 1rem;
     }
   }
-  button {
-    border: 0;
-    font-size: 1.5vw;
-    width: 100%;
-    cursor: pointer;
-    background-color: $color;
-    color: white;
-    margin-left: 5vw;
-    margin-right: 5vw;
-    &:hover{
+
+  #buttons-home {
+    @include container(space-between);
+    padding: $main-padding-y $main-padding-x;
+    gap: 1rem;
+    button {
+      border: 0;
+      font-size: 1rem;
+      width: 100%;
+      cursor: pointer;
+      background-color: $color;
+      color: white;
+      &:hover{
+        border-bottom: 0.1em solid white;
+      }
+    }
+    .selected {
       border-bottom: 0.1em solid white;
     }
-    @media only screen and (orientation: portrait) {
-      font-size: 3.5vw;
-    }
   }
-}
-
-.selected {
-  border-bottom: 0.1em solid white;
-}
-
-#buttons-home {
-  @include container(space-between);
 }
 
 #overview {
-  @include container(space-between);
-  height: 100vh;
+  padding: 0 $main-padding-x $main-padding-y $main-padding-x;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   @media only screen and (max-width: 800px) {
-    flex-wrap: wrap;
-    width: 100vw;
-  }
-  @media only screen and (max-width: 800px) {
-    padding-top: 7vh;
+    grid-template-columns: 1fr;
   }
 }
 
 #content {
-  @include container();
-  width: 60%;
-  margin-left: 3vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   img {
     margin-top: 5vh;
     max-width: 70%;
     min-width: 30vh;
   }
-  @media only screen and (max-width: 800px) {
-    img {
-      margin-top: 0;
-    }
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 50%;
-  }
 }
 
 #intro {
   @include container($alignment: flex-start, $direction: column);
-  flex-wrap: wrap;
-  margin-left: 5vw;
-  width: 50vw;
-  @media only screen and (orientation: portrait) {
-    margin-left: 2vw;
-  }
-  @media only screen and (orientation: portrait) {
-    width: 100vh;
-  }
 }
 
 #info {
   @include container($alignment: flex-start, $direction: column);
+  line-height: 1.675;
   flex-wrap: wrap;
 }
 
 #about {
-  @include container(space-evenly);
-  flex-wrap: wrap;
+  @include container($alignment: space-evenly, $direction: column);
   div {
     @include container();
     div {
@@ -124,6 +119,7 @@ nav {
     }
   }
   img {
+    object-fit: cover;
     margin-bottom: 5vh;
     width: 10vh;
     height: 10vh;
@@ -139,16 +135,25 @@ nav {
 }
 
 #sorter, #legend {
-  position: absolute;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
   background: rgba(255, 255, 255, 0.8);
-  bottom: 0;
-  right: 0;
+  bottom: 30px;
+  right: 10px;
   padding: 10px;
   width: 20vh;
-  height: 40vh;
+  height: min-content;
   border-radius: 8px;
   div {
     @include container(space-between);
+  }
+}
+
+#sorter :not(h2) {
+  margin-bottom: 0.5rem;
+  select {
+    min-width: 100px;
   }
 }
 
@@ -159,13 +164,13 @@ nav {
 }
 
 #map-info {
-  position: absolute;
+  position: fixed;
   background: rgba(255, 255, 255, 0.8);
-  bottom: 0;
-  left: 0;
+  bottom: 30px;
+  left: 10px;
   padding: 10px;
   width: 30vh;
-  height: 30vh;
+  height: min-content;
   border-radius: 8px;
 }
 
