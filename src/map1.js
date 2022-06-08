@@ -103,7 +103,7 @@ map.on("load", () => {
     layout: {
       "icon-image": [
         'match',
-        ['get', 'weaptype1_txt'], // Use the result 'type' property
+        ['get', 'weaptype1_txt'],
         'Firearms', 'firearm',
         'Explosives', 'bomb',
         'Chemical', 'chemical',
@@ -130,7 +130,7 @@ map.on("load", () => {
   //   paint: {
   //     "circle-color": [
   //       'match',
-  //       ['get', 'weaptype1_txt'], // Use the result 'type' property
+  //       ['get', 'weaptype1_txt'],
   //       'Explosive',
   //       '#FF0000',
   //       'Firearms',
