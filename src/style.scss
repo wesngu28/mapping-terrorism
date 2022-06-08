@@ -117,10 +117,14 @@ nav {
     @include container();
     div {
       margin-left: 0.5em;
-      @include container($direction: column);
+      margin-bottom: 5vh;
+      width: 50%;
+      @include container($alignment: flex-start, $direction: column);
+      flex-wrap: wrap;
     }
   }
   img {
+    margin-bottom: 5vh;
     width: 10vh;
     height: 10vh;
     margin-right: 0.5em;
