@@ -146,6 +146,7 @@ map.on('zoomend', () => {
   }
 });
 
+
 function filter() {
   let yearFilter = document.getElementById("years").value;
   let deathFilter = document.getElementById("deaths").value;
