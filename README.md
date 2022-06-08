@@ -1,5 +1,7 @@
 # Terrorism Mapping Project
 
+![demo](img/demo.png) 
+
 By Harrison Liao, Joohoon Cha, Keith Ellingwood, Wesley Nguyen, and Steven Chen
 
 ## Project Idea
