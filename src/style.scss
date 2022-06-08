@@ -1,0 +1,155 @@
+@mixin container($justify: center, $alignment: center, $direction: row) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $alignment;
+  flex-direction: $direction
+}
+$color: #BC5D5F;
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.map-hidden {
+  visibility: hidden;
+}
+
+nav {
+  @include container(space-between);
+  position: fixed;
+  width: 100vw;
+  height: 7vh;
+  background-color: $color;
+  div p {
+    color: white;
+    font-size: 1.5vw;
+    margin-left: 2vw;
+    @media only screen and (orientation: portrait) {
+      font-size: 3.5vw;
+    }
+  }
+  button {
+    border: 0;
+    font-size: 1.5vw;
+    width: 100%;
+    cursor: pointer;
+    background-color: $color;
+    color: white;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    &:hover{
+      border-bottom: 0.1em solid white;
+    }
+    @media only screen and (orientation: portrait) {
+      font-size: 3.5vw;
+    }
+  }
+}
+
+.selected {
+  border-bottom: 0.1em solid white;
+}
+
+#buttons-home {
+  @include container(space-between);
+}
+
+#overview {
+  @include container(space-between);
+  height: 100vh;
+  @media only screen and (max-width: 800px) {
+    flex-wrap: wrap;
+    width: 100vw;
+  }
+  @media only screen and (max-width: 800px) {
+    padding-top: 7vh;
+  }
+}
+
+#content {
+  @include container();
+  width: 60%;
+  margin-left: 3vh;
+  img {
+    margin-top: 5vh;
+    max-width: 70%;
+    min-width: 30vh;
+  }
+  @media only screen and (max-width: 800px) {
+    img {
+      margin-top: 0;
+    }
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50%;
+  }
+}
+
+#intro {
+  @include container($alignment: flex-start, $direction: column);
+  flex-wrap: wrap;
+  margin-left: 5vw;
+  width: 50vw;
+  @media only screen and (orientation: portrait) {
+    margin-left: 2vw;
+  }
+  @media only screen and (orientation: portrait) {
+    width: 100vh;
+  }
+}
+
+#info {
+  @include container($alignment: flex-start, $direction: column);
+  flex-wrap: wrap;
+}
+
+#about {
+  @include container(space-evenly);
+  flex-wrap: wrap;
+  div {
+    @include container();
+    div {
+      margin-left: 0.5em;
+      @include container($direction: column);
+    }
+  }
+  img {
+    width: 10vh;
+    height: 10vh;
+    margin-right: 0.5em;
+  }
+}
+
+#map {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 93vh;
+}
+
+#sorter {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  width: 20vh;
+  height: 40vh;
+  border-radius: 8px;
+  div {
+    @include container(space-between);
+  }
+}
+
+.mapboxgl-popup-content {
+  max-width: 35vh;
+  padding: 8px;
+  border-radius: 8px;
+}

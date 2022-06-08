@@ -11,7 +11,7 @@
 </head>
 <body>
     <nav>
-      <div id="page-title">
+      <div>
         <p>Global Terrorism Dashboard</p>
       </div>
       <div id="buttons-home">
@@ -19,107 +19,109 @@
         <button id="gtd">Map</button>
       </div>
     </nav>
-    <main>
-      <section id="overview">
-        <div id="intro">
+    <section id="overview">
+      <div id="intro">
+        <div id="info">
           <h1>Terrorism Around the World</h1>
-          <h1>Introduction</h1>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati reprehenderit voluptas officiis harum corrupti dicta sunt
-            reiciendis excepturi fuga quas, sed error consequatur recusandae doloremque. Totam molestias sequi doloribus reiciendis!</p>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati reprehenderit voluptas officiis harum corrupti
+            dicta sunt
+            reiciendis excepturi fuga quas, sed error consequatur recusandae doloremque. Totam molestias sequi doloribus
+            reiciendis!</p>
           <h1>About the Data Source</h1>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati reprehenderit voluptas officiis harum corrupti dicta sunt
-            reiciendis excepturi fuga quas, sed error consequatur recusandae doloremque. Totam molestias sequi doloribus reiciendis! </p>
-          <h1>About Us</h1>
-          <div id="about">
-            <div id="person">
-              <img src="img/harrison" alt="harrison">
-              <div>
-                <strong>Harrison</strong>
-                <p>Grade</p>
-            </div>
-            </div>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati reprehenderit voluptas officiis harum corrupti
+            dicta sunt
+            reiciendis excepturi fuga quas, sed error consequatur recusandae doloremque. Totam molestias sequi doloribus
+            reiciendis! </p>
+          <h2>About Us</h2>
+          </div>
+        <div id="about">
+          <div id="person">
+            <img src="img/harrison" alt="harrison">
             <div>
-              <img src="img/wesley" alt="wesley">
-              <div>
-                <strong>Wesley</strong>
-                <p>Grade</p>
-              </div>
-            </div>
+              <strong>Harrison</strong>
+              <p>Grade</p>
+          </div>
+          </div>
+          <div>
+            <img src="img/wesley" alt="wesley">
             <div>
-              <img src="img/keith" alt="keith">
-              <div>
-                <strong>Keith</strong>
-                <p>Grade</p>
-              </div>
+              <strong>Wesley</strong>
+              <p>Grade</p>
             </div>
+          </div>
+          <div>
+            <img src="img/keith" alt="keith">
             <div>
-              <img src="img/joohoon" alt="joohoon">
-              <div>
-                <strong>Joohoon</strong>
-                <p>Grade</p>
-              </div>
+              <strong>Keith</strong>
+              <p>Grade</p>
             </div>
+          </div>
+          <div>
+            <img src="img/joohoon" alt="joohoon">
             <div>
-              <img src="img/steven" alt="steven">
-              <div>
-                <strong>Steven</strong>
-                <p>Grade</p>
-              </div>
+              <strong>Joohoon</strong>
+              <p>Grade</p>
+            </div>
+          </div>
+          <div>
+            <img src="img/steven" alt="steven">
+            <div>
+              <strong>Steven</strong>
+              <p>Grade</p>
             </div>
           </div>
         </div>
-        <div id="content">
-          <img src="./img/911.jpg" alt="9/11 terrorist attack">
+      </div>
+      <div id="content">
+        <img src="./img/911.jpg" alt="9/11 terrorist attack">
+      </div>
+    </section>
+    <section id="map-holder" class="map-hidden">
+      <div id="map"></div>
+      <div id='sorter'>
+        <h2>Filter:</h2>
+        <div id="year">
+          <p>Year:</p>
+          <select name="Years" id="years" onchange="filter()">
+            <option></option>
+            <option value="2010-2019">2010-2019</option>
+            <option value="2000-2009">2000-2009</option>
+            <option value="1990-1999">1990-1999</option>
+            <option value="1980-1989">1980-1989</option>
+            <option value="1970-1979">1970-1979</option>
+          </select>
         </div>
-      </section>
-      <section id="map-holder" class="hidden">
-        <div id="map"></div>
-        <div id="legend"></div>
-        <div id='sorter' style="display:none;">
-          <h2>Filter:</h2>
-          <div id="year">
-            <p>Year:</p>
-            <select name="Years" id="years" onchange="filter()">
-              <option></option>
-              <option value="2010-2019">2010-2019</option>
-              <option value="2000-2009">2000-2009</option>
-              <option value="1990-1999">1990-1999</option>
-              <option value="1980-1989">1980-1989</option>
-              <option value="1970-1979">1970-1979</option>
-            </select>
-          </div>
-          <div id="death">
-            <p>Deaths:</p>
-            <select name="Deaths" id="deaths" onchange="filter()">
-              <option></option>
-              <option value="0-5">0-5</option>
-              <option value="6-10">6-10</option>
-              <option value="11-20">11-20</option>
-              <option value="21">21+</option>
-            </select>
-          </div>
-          <div id="injury">
-            <p>Injuries:</p>
-            <select name="Injuries" id="injuries" onchange="filter()">
-              <option></option>
-              <option value="0-5">0-5</option>
-              <option value="6-10">6-10</option>
-              <option value="11-20">11-20</option>
-              <option value="21">21+</option>
-            </select>
-          </div>
-          <div id="propty-dmg">
-            <p>Property damage:</p>
-            <select name="Property-dmg" id="prop-dmg" onchange="filter()">
-              <option></option>
-              <option value="0">No</option>
-              <option value="1">Yes</option>
-              <option value="-9">Unknown</option>
-            </select>
-          </div>
+        <div id="death">
+          <p>Deaths:</p>
+          <select name="Deaths" id="deaths" onchange="filter()">
+            <option></option>
+            <option value="0-5">0-5</option>
+            <option value="6-10">6-10</option>
+            <option value="11-20">11-20</option>
+            <option value="21">21+</option>
+          </select>
         </div>
-      </section>
-    </main>
+        <div id="injury">
+          <p>Injuries:</p>
+          <select name="Injuries" id="injuries" onchange="filter()">
+            <option></option>
+            <option value="0-5">0-5</option>
+            <option value="6-10">6-10</option>
+            <option value="11-20">11-20</option>
+            <option value="21">21+</option>
+          </select>
+        </div>
+        <div id="propty-dmg">
+          <p>Property damage:</p>
+          <select name="Property-dmg" id="prop-dmg" onchange="filter()">
+            <option></option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+            <option value="-9">Unknown</option>
+          </select>
+        </div>
+      </div>
+    </section>
   <script src="src/map1.js"></script>
   <script src="static/index.js"></script>
 </body>
