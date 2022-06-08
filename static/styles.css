@@ -174,9 +174,21 @@ nav button:hover {
   right: 0;
   padding: 10px;
   width: 20vh;
-  height: 40vh;
+  height: 35vh;
   border-radius: 8px;
 }
+
+#map-info {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    width: 30vh;
+    height: 30vh;
+    border-radius: 8px;
+}
+
 #sorter div {
   display: flex;
   justify-content: space-between;
@@ -188,6 +200,22 @@ nav button:hover {
   max-width: 35vh;
   padding: 8px;
   border-radius: 8px;
+}
+
+.dot {
+    display: inline-block;
+    margin-top: 10px;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    margin-right: 12px;
+}
+
+.dot-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-style: italic;
 }
 
 /*# sourceMappingURL=styles.css.map */

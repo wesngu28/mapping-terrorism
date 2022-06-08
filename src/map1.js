@@ -132,6 +132,38 @@ map.on("load", () => {
   }
 });
 
+// legend
+const layers = [
+  '0-50',
+  '51-250',
+  '251-500',
+  '501+'
+]
+
+const colors = [
+  "#feedde",
+  "#fdbe85",
+  "#fd8d3c",
+  "#d94701"
+]
+
+const legend = document.getElementById('legend');
+legend.innerHTML = "<h2>Legend</h2><b>Incidents Per Cluster</b>";
+
+layers.forEach((layer, i) => {
+    const color = colors[i];
+    const item = document.createElement('div');
+    const key = document.createElement('i');
+    key.className = 'dot';
+    key.style.backgroundColor = color;
+
+    const value = document.createElement('span');
+    value.innerHTML = `${layer}`;
+    item.appendChild(key);
+    item.appendChild(value);
+    legend.appendChild(item);
+});
+
 // handle changing window from legend to filters depending on zoom level
 map.on('zoomend', () => {
   let currZoom = map.getZoom();
