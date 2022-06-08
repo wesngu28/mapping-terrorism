@@ -81,18 +81,40 @@ map.on("load", () => {
   //   },
   // });
 
-  map.loadImage("./assets/marker.png", (error, image) => {
-    if (error) throw error;
-    // Add the image to the map style.
-    map.addImage("marker", image);
-  });
-
+  const weapons = ["bomb", "firearm", "biological", "chemical", "incendiary", "melee", "sabotage", "marker", "vehicle"]
+  for(let i = 0; i < weapons.length; i++) {
+    map.loadImage(`./img/${weapons[i]}.png`, (error, image) => {
+      if (error) throw error;
+      // Add the image to the map style.
+      map.addImage(weapons[i], image);
+    });
+  }
+  // weapons.forEach(weapon => {
+  //   map.loadImage(`./img/${weapons}.png`, (error, image) => {
+  //     if (error) throw error;
+  //     // Add the image to the map style.
+  //     map.addImage(weapon, image);
+  //   });
+  // });
   map.addLayer({
     id: "terrorism-events-layer",
     type: "symbol",
     source: "terrorism-events",
     layout: {
-      "icon-image": "marker", // reference the image
+      "icon-image": [
+        'match',
+        ['get', 'weaptype1_txt'], // Use the result 'type' property
+        'Firearms', 'firearm',
+        'Explosives', 'bomb',
+        'Chemical', 'chemical',
+        'Biological', 'biological',
+        'Incendiary', 'incendiary',
+        'Melee', 'melee',
+        'Vehicle (not to include vehicle-borne explosives, i.e., car or truck bombs)', 'vehicle',
+        'Sabotage Equipment', 'sabotage',
+        'Unknown', 'marker',
+        'other' // any other type
+        ],
       "icon-size": 0.045,
       "icon-allow-overlap": true, // added for allowing overlapping icons which improves loading speed when zooming
       // can be omitted later
@@ -100,6 +122,41 @@ map.on("load", () => {
     minzoom: 5, // Original icon gets displayed when the zoom level is greater than 4
   });
 
+  //colored circles
+  // map.addLayer({
+  //   id: "terrorism-events-layer",
+  //   type: "circle",
+  //   source: "terrorism-events",
+  //   paint: {
+  //     "circle-color": [
+  //       'match',
+  //       ['get', 'weaptype1_txt'], // Use the result 'type' property
+  //       'Explosive',
+  //       '#FF0000',
+  //       'Firearms',
+  //       '#0000FF',
+  //       'Biological',
+  //       '#00994C',
+  //       'Chemical',
+  //       '#999900',
+  //       'Incendiary',
+  //       '#FF8000',
+  //       'Melee',
+  //       '#E0E0E0',
+  //       'Sabotage Equipment',
+  //       '#E5CCFF',
+  //       'Unknown',
+  //       '#000066',
+  //       'Vehicle (not to include vehicle-borne explosives, i.e., car or truck bombs)',
+  //       '#FF99CC',
+  //       /* other */ '#ccc'
+  //       ],
+  //       'circle-stroke-color': 'white',
+  //       'circle-stroke-width': 1,
+  //       'circle-opacity': 0.6
+  //   },
+  //   minzoom: 5, // Original icon gets displayed when the zoom level is greater than 4
+  // });
   map.on('click', 'terrorism-events-layer', (e) => {
     const eventProperties = e.features[0].properties;
     const readableDate = new Date(`${eventProperties.iyear}-${eventProperties.imonth}-${eventProperties.iday}`).toDateString();
