@@ -151,17 +151,23 @@ nav #buttons-home .selected {
   height: min-content;
   border-radius: 8px;
 }
+@media only screen and (max-width: 800px) {
+  #sorter, #legend {
+    padding: 5px;
+    font-size: 0.5rem;
+    width: 15vh;
+  }
+}
 #sorter div, #legend div {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
 }
-#sorter #emoji-legend, #legend #emoji-legend {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
+@media only screen and (max-width: 800px) {
+  #sorter div, #legend div {
+    font-size: 0.5rem;
+  }
 }
 
 #sorter :not(h2) {
@@ -169,6 +175,36 @@ nav #buttons-home .selected {
 }
 #sorter :not(h2) select {
   min-width: 100px;
+}
+@media only screen and (max-width: 800px) {
+  #sorter :not(h2) select {
+    min-width: 5vh;
+  }
+}
+
+#emoji-legend {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  position: fixed;
+  background: rgba(255, 255, 255, 0.8);
+  bottom: 225px;
+  right: 10px;
+  padding: 10px;
+  width: 20vh;
+  height: min-content;
+  border-radius: 8px;
+}
+@media only screen and (max-width: 800px) {
+  #emoji-legend {
+    padding: 5px;
+    font-size: 0.75rem;
+    width: 12vh;
+  }
+}
+#emoji-legend .legend {
+  width: 10%;
 }
 
 .mapboxgl-popup-content {
@@ -187,6 +223,13 @@ nav #buttons-home .selected {
   height: min-content;
   border-radius: 8px;
 }
+@media only screen and (max-width: 800px) {
+  #map-info {
+    padding: 5px;
+    font-size: 0.75rem;
+    width: 25vh;
+  }
+}
 
 .dot {
   display: inline-block;
@@ -202,10 +245,6 @@ nav #buttons-home .selected {
   top: 0;
   right: 0;
   font-style: italic;
-}
-
-.legend {
-  width: 10%;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -24,7 +24,7 @@ body {
   // to hide scrollbar
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
   scrollbar-width: none; /* for Firefox */
-  overflow-y: scroll; 
+  overflow-y: scroll;
 
   &::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
@@ -145,18 +145,44 @@ nav {
   width: 20vh;
   height: min-content;
   border-radius: 8px;
+  @media only screen and (max-width: 800px) {
+    padding: 5px;
+    font-size: 0.5rem;
+    width: 15vh;
+  }
   div {
     @include container(space-between);
-  }
-  #emoji-legend {
-    @include container($alignment: flex-start, $direction: column);
+    @media only screen and (max-width: 800px) {
+      font-size: 0.5rem;
+    }
   }
 }
-
 #sorter :not(h2) {
   margin-bottom: 0.5rem;
   select {
     min-width: 100px;
+    @media only screen and (max-width: 800px) {
+      min-width: 5vh;
+    }
+  }
+}
+#emoji-legend {
+  @include container($alignment: flex-start, $direction: column);
+  position: fixed;
+  background: rgba(255, 255, 255, 0.8);
+  bottom: 225px;
+  right: 10px;
+  padding: 10px;
+  width: 20vh;
+  height: min-content;
+  border-radius: 8px;
+  @media only screen and (max-width: 800px) {
+    padding: 5px;
+    font-size: 0.75rem;
+    width: 12vh;
+  }
+  .legend {
+    width: 10%;
   }
 }
 
@@ -175,6 +201,11 @@ nav {
   width: 30vh;
   height: min-content;
   border-radius: 8px;
+  @media only screen and (max-width: 800px) {
+    padding: 5px;
+    font-size: 0.75rem;
+    width: 25vh;
+  }
 }
 
 .dot {
@@ -191,8 +222,4 @@ nav {
   top: 0;
   right: 0;
   font-style: italic;
-}
-
-.legend {
-  width: 10%;
 }

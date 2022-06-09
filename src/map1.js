@@ -219,12 +219,15 @@ map.on('zoomend', () => {
   let currZoom = map.getZoom();
   let legendDiv = document.getElementById("legend")
   let filterDiv = document.getElementById("sorter")
+  let emoji = document.getElementById("emoji-legend")
   if(currZoom > 5) {
     legendDiv.style.display = "none";
     filterDiv.style.display = "inline";
+    emoji.style.display = "flex";
   } else {
     legendDiv.style.display = "inline";
     filterDiv.style.display = "none";
+    emoji.style.display = "none";
   }
 });
 
