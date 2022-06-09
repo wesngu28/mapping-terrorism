@@ -82,20 +82,13 @@ map.on("load", () => {
   // });
 
   const weapons = ["bomb", "firearm", "biological", "chemical", "incendiary", "melee", "sabotage", "marker", "vehicle"]
-  for(let i = 0; i < weapons.length; i++) {
-    map.loadImage(`./img/${weapons[i]}.png`, (error, image) => {
+  weapons.forEach(weapon => {
+    map.loadImage(`./img/${weapon}.png`, (error, image) => {
       if (error) throw error;
       // Add the image to the map style.
-      map.addImage(weapons[i], image);
+      map.addImage(weapon, image);
     });
-  }
-  // weapons.forEach(weapon => {
-  //   map.loadImage(`./img/${weapons}.png`, (error, image) => {
-  //     if (error) throw error;
-  //     // Add the image to the map style.
-  //     map.addImage(weapon, image);
-  //   });
-  // });
+  });
   map.addLayer({
     id: "terrorism-events-layer",
     type: "symbol",
