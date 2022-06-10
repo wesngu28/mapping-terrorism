@@ -166,7 +166,7 @@ nav #buttons-home .selected {
 }
 @media only screen and (max-width: 800px) {
   #sorter div, #legend div {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
 }
 
@@ -189,11 +189,12 @@ nav #buttons-home .selected {
   flex-direction: column;
   position: fixed;
   background: rgba(255, 255, 255, 0.8);
-  bottom: 225px;
-  right: 10px;
+  bottom: 30px;
+  right: 27vh;
   padding: 10px;
   width: 20vh;
   height: min-content;
+  width: min-content;
   border-radius: 8px;
 }
 @media only screen and (max-width: 800px) {
@@ -201,10 +202,12 @@ nav #buttons-home .selected {
     padding: 5px;
     font-size: 0.75rem;
     width: 12vh;
+    right: 10px;
+    bottom: 225px;
   }
 }
 #emoji-legend .legend {
-  width: 10%;
+  width: 25%;
 }
 
 .mapboxgl-popup-content {
@@ -226,7 +229,7 @@ nav #buttons-home .selected {
 @media only screen and (max-width: 800px) {
   #map-info {
     padding: 5px;
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     width: 25vh;
   }
 }
